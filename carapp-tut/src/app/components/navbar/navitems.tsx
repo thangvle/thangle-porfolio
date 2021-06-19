@@ -1,45 +1,99 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import tw from "twin.macro";
-import {Slide as Menu} from "react-burger-menu";
+import { slide as Menu } from "react-burger-menu";
+import { useMediaQuery } from "react-responsive";
+import { Screens } from "../responsive";
+import menuStyles from "./menuStyles";
 
 const ListContainer = styled.ul`
-    ${tw`
-        flex
-        list-none      
+  ${tw`
+    flex
+    list-none
+  `};
+`;
+
+const NavItem = styled.li<{ menu?: any }>`
+  ${tw`
+    
+    text-sm
+    md:text-base
+    text-black
+    font-medium
+    mr-1
+    md:mr-5
+    cursor-pointer
+    transition
+    duration-300
+    ease-in-out
+    hover:text-gray-800
+  `};
+
+  ${({ menu }) =>
+    menu &&
+    css`
+      ${tw`
+      text-white
+      text-2xl
+      mb-3
+      focus:text-white
+    `};
     `};
 `;
 
-const NavItem = styled.li`
-    ${tw`
-        text-xs
-        md:text-base
-        text-black
-        font-medium
-        mr-1 
-        md:mr-5 
-        cursor-pointer
-        transition
-        duration-300 
-        hover:text-gray-800 
-    `};
-`;
+export function NavItems() {
+  const isMobile = useMediaQuery({ maxWidth: Screens.sm });
 
-export function NavItems () {
+  if (isMobile)
     return (
+      <Menu right styles={menuStyles}>
         <ListContainer>
-            <NavItem>
-                <a href="#"> Home </a>
-            </NavItem>
-            <NavItem>
-                <a href="#"> Cars </a>
-            </NavItem>
-            <NavItem>
-                <a href="#"> Service </a>
-            </NavItem>
-            <NavItem>
-                <a href="#"> Contact us </a>
-            </NavItem>
+          <NavItem menu>
+            <a style={{ color: "inherit", textDecoration: "inherit" }} href="#">
+              Home
+            </a>
+          </NavItem>
+          <NavItem menu>
+            <a style={{ color: "inherit", textDecoration: "inherit" }} href="#">
+              Cars
+            </a>
+          </NavItem>
+          <NavItem menu>
+            <a style={{ color: "inherit", textDecoration: "inherit" }} href="#">
+              Services
+            </a>
+          </NavItem>
+          <NavItem menu>
+            <a style={{ color: "inherit", textDecoration: "inherit" }} href="#">
+              Contact Us
+            </a>
+          </NavItem>
         </ListContainer>
-    )
+      </Menu>
+    );
+
+  return (
+    <ListContainer>
+      <NavItem>
+        <a style={{ color: "inherit", textDecoration: "inherit" }} href="#">
+          Home
+        </a>
+      </NavItem>
+      <NavItem>
+        <a style={{ color: "inherit", textDecoration: "inherit" }} href="#">
+          Cars
+        </a>
+      </NavItem>
+      <NavItem>
+        <a style={{ color: "inherit", textDecoration: "inherit" }} href="#">
+          Services
+        </a>
+      </NavItem>
+      <NavItem>
+        <a style={{ color: "inherit", textDecoration: "inherit" }} href="#">
+          Contact Us
+        </a>
+      </NavItem>
+    </ListContainer>
+  );
 }
