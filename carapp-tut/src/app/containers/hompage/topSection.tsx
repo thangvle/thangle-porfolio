@@ -4,9 +4,11 @@ import tw from "twin.macro";
 
 import Audi from "../../../assets/Audi.png";
 import Shape from "../../../assets/blob.svg";
+import { Screens } from "../../components/responsive";
+import { Button } from "../../components/button";
 //lg:pl - For large screen, set padding left to 12px
 const TopSectionContainer = styled.div`
-  min-height: 400px;
+  min-height: 600px;
   margin-top: 6em;
   ${tw`
     w-full 
@@ -24,6 +26,7 @@ const LeftContainer = styled.div`
     w-1/2 
     flex
     flex-col
+    pl-10
     `};
 `;
 
@@ -81,35 +84,95 @@ const ShapeContainer = styled.div`
     height: auto;
     max-height: max-content;
   }
+  @media (min-width: ${Screens.xs}) {
+    width: 50em; 
+    max-height: 10em;
+    right:-5em; 
+    top:-16em; 
+    transform: rotate(-30deg);
+
+  @media (min-width: ${Screens.sm}) {
+    width: 40em; 
+    max-height: 10em;
+    right:-9em; 
+    top:-16em; 
+    transform: rotate(-25deg); 
+  }
+  @media (min-width: ${Screens.lg}) {
+    width: 50em; 
+    max-height: 30em;
+    right: -7em; 
+    top: -15em; 
+    transform: rotate(-25deg); 
+  
+    @media (min-width: ${Screens.xl}) {
+      width: 70em; 
+      max-height: 60em;
+      right: -7em; 
+      top: -15em; 
+      transform: rotate(-25deg); 
 `;
 // set width to auto so it would not distort the image ratio
 const StandaloneCar = styled.div`
   width: auto;
-  height: 10em;
-  right: -4em;
-  top: -3em;
+  height: 8em;
+  right: -6em;
+  top: 3em;
   position: absolute;
 
   img {
     width: auto;
-    height: 300%;
+    height: 200%;
     max-width: fit-content;
   }
+  @media (min-width: ${Screens.xs}) {
+    height: 5em;
+    right: -6em;
+    top: 3em;
+  }
+  @media (min-width: ${Screens.sm}) {
+    height: 8em;
+    right: -6em;
+    top: 3em;
+  }
+  @media (min-width: ${Screens.md}) {
+    height: 11em;
+    right: -6em;
+    top: -4em;
+  }
+  @media (min-width: ${Screens.lg}) {
+    height: 12em;
+    right: -8em;
+    top: -4em;
+  }
+  @media (min-width: ${Screens.xl}) {
+    height: 18em;
+    right: -16em;
+    top: -3em;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  ${tw`
+    flex
+    flex-wrap
+    
+    mt-5
+  `};
 `;
 export function TopSection() {
   return (
     <TopSectionContainer>
       <LeftContainer>
-        <Slogan>
-          {" "}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </Slogan>
+        <Slogan> Bring the best car to your ride</Slogan>
         <Description>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus
-          consequuntur esse laboriosam fugiat aspernatur fuga, aliquid atque
-          eligendi est voluptatum, asperiores veritatis. Sequi iure,
-          consequuntur suscipit voluptatem consectetur doloribus nam!
+          Here we have basic car, not sport car. Enough for you to ride your ass
+          and have a good trip
         </Description>
+        <ButtonContainer>
+          <Button theme="outlined" text="Book a Car" />
+          <Button theme="filled" text="Sell your car" />
+        </ButtonContainer>
       </LeftContainer>
       <RightContainer>
         <ShapeContainer>
