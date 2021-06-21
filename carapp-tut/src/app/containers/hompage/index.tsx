@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
+import { Marginer } from "../../components/marginer";
+import { BookCalendar } from "../../components/bookCalendar";
 import { NavBar } from "../../components/navbar";
 import { TopSection } from "./topSection";
+
 const PageContainer = styled.div`
   ${tw`
         flex
@@ -11,13 +14,15 @@ const PageContainer = styled.div`
         h-full
         items-center
         overflow-x-hidden
-    `}
+    `};
 `;
 export function HomePage() {
   return (
     <PageContainer>
       <NavBar />
       <TopSection />
+      <Marginer direction="vertical" margin="4em" />
+      <BookCalendar />
     </PageContainer>
   );
 }
