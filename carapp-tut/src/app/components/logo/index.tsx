@@ -21,6 +21,7 @@ const LogoText = styled.div`
         font-bold
         text-black
         m-1 
+        pl-2
 
     `};
 `;
@@ -40,7 +41,7 @@ export function Logo() {
       <Image>
         <img src={CarIcon} />
       </Image>
-      <LogoText> Car App</LogoText>
+      <LogoText> Ride Your Ass</LogoText>
     </LogoContainer>
   );
 }
