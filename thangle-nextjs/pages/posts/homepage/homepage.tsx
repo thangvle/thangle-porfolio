@@ -1,6 +1,3 @@
-import Head from "next/head";
-import Image from "next/image";
-import HomePage from "./posts/homepage/homepage";
 import styled from "styled-components";
 import tw from "twin.macro";
 
@@ -15,7 +12,6 @@ const HomeContainer = styled.div`
 
     `};
 `;
-
-export default function Home() {
-  return <HomeContainer>Hello World</HomeContainer>;
+export default function HomePage() {
+  return <HomeContainer></HomeContainer>;
 }
